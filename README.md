@@ -81,6 +81,7 @@ By embarking on this project, you'll achieve:
 - HTML
 - CSS
 - Tailwind CSS
+- Vite
 
 ## Contributing 🤝
 
