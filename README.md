@@ -4,16 +4,7 @@
 
 Welcome to the **React Router v6.15.0 Van Booking System** project repository! This repository is your launchpad for an exciting journey into mastering React Router version 6.15.0. 🚀 Through this project, we'll dive deep into creating a comprehensive van booking system, and along the way, you'll conquer essential concepts like introduction to the router, nested routing, search params and links, loaders and errors, actions and protected routes, as well as the magic of deferred data loading. 🎓
 
-## Table of Contents 📚
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Learning Objectives](#learning-objectives)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction 🌟
 
