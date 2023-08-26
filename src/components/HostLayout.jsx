@@ -5,9 +5,9 @@ const HostLayout = () => {
     <div className="max-w-6xl mx-auto">
       <nav className="flex gap-5 ml-5">
         <NavLink end to="/host">Dashboard</NavLink>
-        <NavLink to="/host/income">Income</NavLink>
-        <NavLink to="/host/vans">Vans</NavLink>
-        <NavLink to="/host/reviews">Reviews</NavLink>
+        <NavLink to="income">Income</NavLink>
+        <NavLink to="vans">Vans</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </nav>
       <Outlet />
     </div>

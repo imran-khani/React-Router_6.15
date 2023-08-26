@@ -9,7 +9,7 @@ const HostVans = () => {
           <div key={item.id} className="flex flex-col gap-10">
             <Link to={`/host/vans/${item.id}`}>
               <div className="flex gap-5 items-center bg-white mt-3 rounded-md">
-                <div className="">
+                <div>
                   <img className="w-20 h-20" src={item.imageUrl} alt="" />
                 </div>
                 <div>
