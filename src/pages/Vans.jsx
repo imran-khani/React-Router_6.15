@@ -39,10 +39,30 @@ export default function Vans() {
     <div className="van-list-container max-w-6xl mx-auto">
       <h1>Explore our van options</h1>
       <div className="flex gap-5 mt-10">
-        <Link to={`?type=simple`} className="bg-orange-500 text-white p-2 rounded-md">Simple</Link>
-        <Link to={`?type=rugged`} className="bg-blue-500 text-white p-2 rounded-md">Rugged</Link>
-        <Link to={`?type=luxury`} className="bg-black text-white p-2 rounded-md">Luxury</Link>
-        <Link to={'.'} className="bg-slate-600 text-white p-2 rounded-md">Clear Filter</Link>
+        <button
+          onClick={() => setSearchParams({ type: "simple" })}
+          className="bg-orange-500 text-white p-2 rounded-md"
+        >
+          Simple
+        </button>
+        <button
+          onClick={() => setSearchParams({ type: "rugged" })}
+          className="bg-blue-500 text-white p-2 rounded-md"
+        >
+          Rugged
+        </button>
+        <button
+          onClick={() => setSearchParams({ type: "luxury" })}
+          className="bg-black text-white p-2 rounded-md"
+        >
+          Luxury
+        </button>
+        <button
+          onClick={() => setSearchParams({})}
+          className="bg-slate-600 text-white p-2 rounded-md"
+        >
+          Clear Filter
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2  gap-5 mt-10  space-x-3">
         {vanElements}
