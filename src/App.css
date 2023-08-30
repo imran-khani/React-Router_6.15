@@ -164,6 +164,7 @@ footer {
 
 .van-list-container {
   padding-inline: 23px;
+  margin: auto;
 }
 
 .van-list {
@@ -311,8 +312,8 @@ i[class*="van-type-"] {
   font-weight: 600;
 }
 
-.active{
+.active {
   font-weight: bold;
- text-decoration: underline;
- color: #161616;
+  text-decoration: underline;
+  color: #161616;
 }
