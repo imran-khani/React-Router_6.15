@@ -57,9 +57,9 @@ export default function Vans() {
         >
           Luxury
         </button>
-        <button
+        <button 
           onClick={() => setSearchParams({})}
-          className="bg-slate-600 text-white p-2 rounded-md"
+          className={`bg-slate-600 text-white p-2 rounded-md ${searchParams.has('type') ? 'block' : 'hidden'}`}
         >
           Clear Filter
         </button>
