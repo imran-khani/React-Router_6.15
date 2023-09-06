@@ -18,19 +18,19 @@ export default function Vans() {
     : vans;
 
   const vanElements = displayVans.map((van) => (
-    <div key={van.id} className="van-tile">
-      <Link to={`/vans/${van.id}`}>
+    <div key={van.id} className="van-tile mb-5">
+      <Link to={`${van.id}`}>
         <img className="w-[100%] object-cover" src={van.imageUrl} />
-        <div className="van-info">
-          <h3>{van.name}</h3>
-          <p className="mb-2">
+        <div className="van-info flex justify-between items-center mt-3 mb-2">
+          <h3 className="font-bold ">{van.name}</h3>
+          <p className="mr-5 font-bold">
             ${van.price}
             <span>/day</span>
           </p>
         </div>
       </Link>
-      <Link to={`?type=${van.type}`}>
-        <i className={`van-type ${van.type} selected`}>{van.type}</i>{" "}
+      <Link to={`${van.type}`}>
+        <i className={`van-type ${van.type} selected `}>{van.type}</i>
       </Link>
     </div>
   ));
@@ -41,28 +41,36 @@ export default function Vans() {
       <div className="flex gap-5 mt-10">
         <button
           onClick={() => setSearchParams({ type: "simple" })}
-          className="bg-orange-500 text-white p-2 rounded-md"
+          className={`bg-gray-400 text-white p-2 rounded-md ${
+            typeFilter === "simple" ? "bg-orange-400" : ""
+          }`}
         >
           Simple
         </button>
         <button
           onClick={() => setSearchParams({ type: "rugged" })}
-          className="bg-blue-500 text-white p-2 rounded-md"
+          className={`bg-gray-400 text-white p-2 rounded-md ${
+            typeFilter === "rugged" ? "bg-orange-400" : ""
+          } `}
         >
           Rugged
         </button>
         <button
           onClick={() => setSearchParams({ type: "luxury" })}
-          className="bg-black text-white p-2 rounded-md"
+          className={`bg-gray-400 text-white p-2 rounded-md ${
+            typeFilter === "luxury" ? "bg-orange-400" : ""
+          } `}
         >
           Luxury
         </button>
-        <button 
-          onClick={() => setSearchParams({})}
-          className={`bg-slate-600 text-white p-2 rounded-md ${searchParams.has('type') ? 'block' : 'hidden'}`}
-        >
-          Clear Filter
-        </button>
+        {typeFilter && (
+          <button
+            onClick={() => setSearchParams({})}
+            className={`bg-slate-600 text-white p-2 rounded-md ml-auto`}
+          >
+            Clear Filter
+          </button>
+        )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2  gap-5 mt-10  space-x-3">
         {vanElements}
