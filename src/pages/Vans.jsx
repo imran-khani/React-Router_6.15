@@ -1,16 +1,26 @@
-import { Link, useSearchParams } from "react-router-dom";
-import data from "../Data.json";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
+  // const [vans, setVans] = useState([]);
   let [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
 
-  useEffect(() => {
-    setVans(data);
-  }, []);
+  // useEffect(() => {
+  //   const res = async () => {
+  //     const vans = await fetch(
+  //       "https://mocki.io/v1/e8b1ea04-b8cc-461e-9aae-ca029383414f"
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => data);
+  //     setVans(vans);
+  //     console.log(vans);
+  //   };
+  //   res();
+  // }, []);
+
+  const vans = useLoaderData();
 
   const displayVans = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
@@ -18,7 +28,10 @@ export default function Vans() {
 
   const vanElements = displayVans.map((van) => (
     <div key={van.id} className="van-tile mb-5">
-      <Link to={van.id} state={{ search: `?${searchParams.toString()}`, type:typeFilter }}>
+      <Link
+        to={van.id}
+        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+      >
         <img className="w-[100%] object-cover" src={van.imageUrl} />
         <div className="van-info flex justify-between items-center mt-3 mb-2">
           <h3 className="font-bold ">{van.name}</h3>
