@@ -7,7 +7,6 @@ export default function Vans() {
   let [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
 
   useEffect(() => {
     setVans(data);
@@ -19,7 +18,7 @@ export default function Vans() {
 
   const vanElements = displayVans.map((van) => (
     <div key={van.id} className="van-tile mb-5">
-      <Link to={`${van.id}`}>
+      <Link to={van.id} state={{ search: `?${searchParams.toString()}`, type:typeFilter }}>
         <img className="w-[100%] object-cover" src={van.imageUrl} />
         <div className="van-info flex justify-between items-center mt-3 mb-2">
           <h3 className="font-bold ">{van.name}</h3>
@@ -29,7 +28,7 @@ export default function Vans() {
           </p>
         </div>
       </Link>
-      <Link to={`${van.type}`}>
+      <Link to={van.type}>
         <i className={`van-type ${van.type} selected `}>{van.type}</i>
       </Link>
     </div>

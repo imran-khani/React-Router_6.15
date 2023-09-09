@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import vansData from "../Data.json"; // Import the JSON data
 
 export default function VanDetail() {
   const params = useParams();
   const [van, setVan] = React.useState(null);
-
+  const location = useLocation();
+  console.log(location.state?.type);
   React.useEffect(() => {
     // Find the van with the matching ID from the imported JSON data
     const selectedVan = vansData.find((van) => van.id === params.id);
@@ -16,11 +17,13 @@ export default function VanDetail() {
     }
   }, [params.id]);
 
+  const search = location.state?.search || "";
+  const typeValue = location.state?.type || "all";
   return (
     <div className="van-detail-container">
       {van ? (
         <div className="van-detail max-w-[500px] mx-auto mt-0">
-          <Link relative="path" to="..">
+          <Link relative="path" to={`..${search}`}>
             <p className="flex gap-2 hover:cursor-pointer hover:underline">
               <span>
                 <svg
@@ -38,7 +41,7 @@ export default function VanDetail() {
                   />
                 </svg>
               </span>
-              Back to all vans
+              Back to {typeValue} vans
             </p>
           </Link>
           <img className="max-w-[100%] " src={van.imageUrl} alt={van.name} />
